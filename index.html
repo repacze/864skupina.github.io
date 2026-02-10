@@ -58,6 +58,24 @@
     /* Bez „bliknutí“: dokud JS nerozhodne layout, skryjeme obě varianty menu */
     html.js:not(.nav-ready) #desktopNav,
     html.js:not(.nav-ready) #menuBtn{visibility:hidden}
+
+    /* Poloprůhledné logo na pozadí (watermark) */
+    body{position:relative}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:url('logo.png');
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:min(520px, 70vw);
+      opacity:0.06;
+      filter:saturate(.9) contrast(1.05);
+      transform:rotate(-12deg);
+      pointer-events:none;
+      z-index:0;
+    }
+    body > *{position:relative; z-index:1;}
 </style>
 </head>
 <body>
@@ -379,6 +397,33 @@
         <p class="mt-3 text-neutral-300">
           Program vždy přizpůsobujeme aktuálním podmínkám. Pokud není vhodné počasí pro venkovní aktivity,
           věnujeme se bezpečnostním pravidlům, taktice nebo týmovým cvičením.
+        </p>
+      </div>
+
+      <!-- DALŠÍ PRAKTICKÉ DOTAZY -->
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-2xl text-neutral-100">Kam jezdíme hrát?</h3>
+        <p class="mt-3 text-neutral-300">
+          Hrajeme na různých hřištích v <strong>Praze</strong> a <strong>na západ od Prahy</strong> – typicky v okolí
+          <strong>Kladna</strong>, <strong>Slaného</strong> a <strong>Berouna</strong>. Konkrétní místo vždy upřesníme předem
+          podle typu akce a možností skupiny.
+        </p>
+      </div>
+
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-2xl text-neutral-100">S kým se střetáváme nejčastěji?</h3>
+        <p class="mt-3 text-neutral-300">
+          Často spolupracujeme a potkáváme se se spřáteleným týmem <strong>SALTY INVADERS</strong>.
+          Odkaz na jejich Facebook najdeš zde:
+          <a class="underline hover:text-white" href="https://www.facebook.com/groups/airsoftkladnoslany.cz/" target="_blank" rel="noopener">Airsoft Kladno–Slaný / Salty Invaders</a>.
+        </p>
+      </div>
+
+      <div class="card p-6 rounded-2xl md:col-span-2">
+        <h3 class="text-2xl text-neutral-100">Jak jezdit na víkendové akce?</h3>
+        <p class="mt-3 text-neutral-300">
+          Nemusíš dítě vozit pokaždé sám. Většinou se dá domluvit <strong>spolujízda</strong> s ostatními rodiči nebo
+          členy skupiny, kteří jedou stejným směrem. Domluvu řešíme průběžně na tréninku nebo přes naše komunikační kanály.
         </p>
       </div>
     </div>
