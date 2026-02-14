@@ -115,6 +115,7 @@ main{position:relative; z-index: 1;}
 
     <nav id="desktopNav" class="hidden md:flex gap-6 text-sm text-neutral-200 whitespace-nowrap">
       <a class="nav-link" href="#info">Info</a>
+      <a class="nav-link" href="#cojeairsoft">Co je airsoft</a>
       <a class="nav-link" href="#onas">O nás</a>
       <a class="nav-link" href="#bezpecnost">Bezpečnost</a>
       <a class="nav-link" href="#prvni">První návštěva</a>
@@ -173,6 +174,7 @@ main{position:relative; z-index: 1;}
 
   <div class="p-4 space-y-2">
     <a class="block px-4 py-3 rounded-xl btn-outline hover:bg-white/5" href="#info">Info</a>
+    <a class="block px-4 py-3 rounded-xl btn-outline hover:bg-white/5" href="#cojeairsoft">Co je airsoft</a>
     <a class="block px-4 py-3 rounded-xl btn-outline hover:bg-white/5" href="#onas">O nás</a>
     <a class="block px-4 py-3 rounded-xl btn-outline hover:bg-white/5" href="#bezpecnost">Bezpečnost</a>
     <a class="block px-4 py-3 rounded-xl btn-outline hover:bg-white/5" href="#faq">FAQ</a>
@@ -308,6 +310,72 @@ main{position:relative; z-index: 1;}
   </div>
 </section>
 
+
+<section id="cojeairsoft" class="py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl mb-10 brand-text">Co je airsoft</h2>
+
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-3xl text-neutral-100">Základ v jedné větě</h3>
+        <p class="mt-3 text-neutral-300">
+          Airsoft je <strong>týmová hra v terénu</strong>, kde se používají repliky zbraní střílející plastové kuličky.
+          Cílem není „ublížit“, ale <strong>spolupracovat</strong>, pohybovat se bezpečně a dodržovat pravidla.
+        </p>
+      </div>
+
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-3xl text-neutral-100">Sport, ne agresivita</h3>
+        <p class="mt-3 text-neutral-300">
+          Airsoft bereme jako sportovní aktivitu: komunikace, tým, orientace v prostoru, disciplína a fair play.
+          Neučíme agresi ani „šikanu“. Kdo porušuje pravidla, u nás dlouho nevydrží.
+        </p>
+      </div>
+
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-3xl text-neutral-100">Bezpečnost v kostce</h3>
+        <p class="mt-4 text-sm text-neutral-400">
+          <button type="button" class="underline hover:text-white font-semibold" data-modal-open="safetyModal">
+            Zobrazit detailní bezpečnostní pravidla
+          </button>
+        </p>
+
+        <ul class="mt-4 space-y-2 text-neutral-300">
+          <li>Ochranné brýle jsou povinné</li>
+          <li>Safe zóna bez střelby</li>
+          <li>Kontrolovaný a limitovaný výkon zbraní</li>
+          <li>Minimální vzdálenosti a dohled instruktorů</li>
+        </ul>
+      </div>
+
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-3xl text-neutral-100">Bolí to?</h3>
+        <p class="mt-3 text-neutral-300">
+          Zásah může být cítit (jako štípnutí gumičkou). Citlivější místa (např. obličej nebo prsty) mohou bolet víc,
+          proto jsou brýle povinné a ochranu obličeje doporučujeme. Hrajeme pouze na akcích s limitovaným výkonem
+          a dodržujeme vzdálenosti.
+        </p>
+      </div>
+
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-3xl text-neutral-100">Pro úplné začátečníky</h3>
+        <p class="mt-3 text-neutral-300">
+          Je to v pořádku – většina u nás začínala od nuly. Všechno vysvětlíme, pravidla projdeme krok za krokem
+          a první návštěva je nezávazná. Dítě může kdykoli říct „stop“ a dát si pauzu.
+        </p>
+      </div>
+
+      <div class="card p-6 rounded-2xl">
+        <h3 class="text-3xl text-neutral-100">Proč to děti baví</h3>
+        <p class="mt-3 text-neutral-300">
+          Je to pohyb venku, hra s jasnými pravidly a týmová spolupráce. Děti se učí odpovědnosti za vybavení,
+          komunikaci v týmu a respektu k ostatním.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="onas" class="bg-neutral-900 py-20 px-4">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-6xl mb-10 brand-text">O nás</h2>
@@ -365,6 +433,13 @@ main{position:relative; z-index: 1;}
 <section id="bezpecnost" class="py-20 px-4">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-6xl mb-10 brand-text">Bezpečnost</h2>
+    <p class="mt-2 text-neutral-300 max-w-3xl">
+      U nás je bezpečnost i pohoda v týmu důležitější než „výhra“. Kdo chce, může si přečíst naše jednoduché zásady fair play.
+      <button type="button" class="underline hover:text-white font-semibold" data-modal-open="rulesModal">
+        Otevřít zásady fair play
+      </button>
+    </p>
+
     <div class="grid md:grid-cols-2 gap-6">
       <div class="card p-6 rounded-2xl">
         <h3 class="text-3xl text-neutral-100">Základní pravidla</h3>
@@ -393,15 +468,7 @@ main{position:relative; z-index: 1;}
 
     <div class="grid md:grid-cols-2 gap-6">
       <!-- PŮVODNÍ FAQ -->
-      <div class="card p-6 rounded-2xl">
-        <h3 class="text-2xl text-neutral-100">Je airsoft pro děti bezpečný?</h3>
-        <p class="mt-3 text-neutral-300">
-          Ano, pokud se dodržují pravidla. Program je přizpůsoben věku účastníků, používáme ochranné pomůcky
-          a po celou dobu je přítomen dozor instruktorů.
-        </p>
-      </div>
-
-      <div class="card p-6 rounded-2xl">
+<div class="card p-6 rounded-2xl">
         <h3 class="text-2xl text-neutral-100">Musí mít dítě vlastní vybavení?</h3>
         <p class="mt-3 text-neutral-300">
           Nemusí. Na první návštěvu stačí vhodné oblečení a pevné boty. Základní vybavení je možné si
@@ -416,16 +483,7 @@ main{position:relative; z-index: 1;}
           prohlédnout a probrat s vedoucími.
         </p>
       </div>
-
-      <div class="card p-6 rounded-2xl">
-        <h3 class="text-2xl text-neutral-100">Je kroužek vhodný i pro úplné začátečníky?</h3>
-        <p class="mt-3 text-neutral-300">
-          Rozhodně ano. Většina účastníků začínala bez zkušeností. Vše postupně vysvětlíme
-          a nikoho netlačíme do ničeho, na co se necítí.
-        </p>
-      </div>
-
-      <div class="card p-6 rounded-2xl md:col-span-2">
+<div class="card p-6 rounded-2xl md:col-span-2">
         <h3 class="text-2xl text-neutral-100">Co když se dítěti nebude kroužek líbit?</h3>
         <p class="mt-3 text-neutral-300">
           Nic se neděje. První návštěva slouží právě k vyzkoušení. Pokud dítě zjistí, že to není pro něj,
@@ -439,6 +497,9 @@ main{position:relative; z-index: 1;}
         <p class="mt-3 text-neutral-300">
           Orientačně počítáme s příspěvkem <strong>3&nbsp;000&nbsp;Kč za pololetí</strong>.
           Berte to prosím jako informativní částku – přesné podmínky vždy vysvětlíme při osobním kontaktu.
+        </p>
+        <p class="mt-3 text-sm text-neutral-400">
+          <button type="button" class="underline hover:text-white font-semibold" data-modal-open="costModal">Zobrazit orientační rozpad nákladů (kroužek vs. vybavení)</button>
         </p>
       </div>
 
@@ -457,22 +518,7 @@ main{position:relative; z-index: 1;}
           věnujeme se bezpečnostním pravidlům, taktice nebo týmovým cvičením.
         </p>
       </div>
-
-      <div class="card p-6 rounded-2xl">
-        <h3 class="text-2xl text-neutral-100">Bolí to?</h3>
-        <p class="mt-3 text-neutral-300">
-          Zásah může být cítit (podobně jako štípnutí gumičkou). Citlivější místa (např. obličej nebo prsty) mohou bolet víc, proto jsou ochranné brýle povinné a doporučujeme i krytí obličeje. Hrajeme pouze na akcích s kontrolovaným a limitovaným výkonem zbraní a dodržujeme minimální vzdálenosti i pravidla fair play.
-        </p>
-      </div>
-
-      <div class="card p-6 rounded-2xl">
-        <h3 class="text-2xl text-neutral-100">Je to agresivní?</h3>
-        <p class="mt-3 text-neutral-300">
-          Airsoft bereme jako sportovní a týmovou aktivitu. Neučíme agresi ani „šikanu“, ale spolupráci, komunikaci a respekt k pravidlům. Když někdo pravidla porušuje, řešíme to okamžitě a důsledně.
-        </p>
-      </div>
-
-      <div class="card p-6 rounded-2xl md:col-span-2">
+<div class="card p-6 rounded-2xl md:col-span-2">
         <h3 class="text-2xl text-neutral-100">Co když se dítě bude bát nebo si bude chtít dát pauzu?</h3>
         <p class="mt-3 text-neutral-300">
           Kdykoli je možné odejít do safe zóny, odpočinout si nebo hru vynechat. Nikoho netlačíme do situací, na které se necítí. Na první návštěvě si dítě program nejdřív vyzkouší v klidu a postupně.
@@ -485,6 +531,20 @@ main{position:relative; z-index: 1;}
           Drobné oděrky nebo modřiny se mohou stát, stejně jako u jiných sportů. Máme k dispozici lékárničku a dospělý dozor. Pokud by bylo potřeba cokoli řešit, kontaktujeme rodiče. Díky pravidlům a ochranným pomůckám jsou vážnější situace velmi vzácné.
         </p>
       </div>
+
+      <div class="card p-6 rounded-2xl md:col-span-2">
+        <h3 class="text-2xl text-neutral-100">Je airsoft drahý koníček? Kolik stojí vybavení?</h3>
+        <p class="mt-3 text-neutral-300">
+          Může být – záleží, jak k tomu přistoupíš. Na začátek není potřeba kupovat „všechno“, důležité je bezpečí a postupné doplňování.
+          Připravili jsme stručný seznam výbavy podle toho, co je <strong>povinné</strong>, co je <strong>doporučené</strong> a co jsou pro začátečníky často
+          jen <strong>vyhozené peníze</strong>.
+          <button type="button"
+                  class="underline hover:text-white font-semibold"
+                  data-modal-open="gearModal">
+            Otevřít seznam vybavení
+          </button>
+        </p>
+      </div>
 </div>
   </div>
 </section>
@@ -492,6 +552,13 @@ main{position:relative; z-index: 1;}
 <section id="prvni" class="bg-neutral-900 py-20 px-4">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-6xl mb-10 brand-text">První návštěva</h2>
+    <p class="mt-2 text-neutral-300 max-w-3xl">
+      Chceš to mít úplně bez stresu? Máme krátký checklist, co si připravit a jak první návštěva probíhá.
+      <button type="button" class="underline hover:text-white font-semibold" data-modal-open="firstVisitModal">
+        Otevřít checklist první návštěvy
+      </button>
+    </p>
+
     <ol class="list-decimal list-inside space-y-2 text-neutral-300 max-w-2xl text-lg">
       <li>Napište nebo zavolejte (uveďte věk dítěte)</li>
       <li>Přijďte se podívat, vše vysvětlíme</li>
@@ -708,6 +775,373 @@ main{position:relative; z-index: 1;}
   if (document.fonts && document.fonts.ready){
     document.fonts.ready.then(updateHeaderLayout);
   }
+
+
+  // --- Modály (vyskakovací okna): společná obsluha ---
+  // Otevírání: prvek s data-modal-open="ID"
+  // Zavírání: tlačítko s data-modal-close, klik na backdrop, nebo ESC
+  window.addEventListener('DOMContentLoaded', () => {
+    function openModal(id){
+      const modal = document.getElementById(id);
+      const backdrop = document.querySelector(`[data-modal-backdrop="${id}"]`);
+      if (!modal || !backdrop) return;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      backdrop.classList.remove('hidden');
+
+      document.documentElement.style.overflow = 'hidden';
+
+      // fokus na první zavírací tlačítko (pokud existuje)
+      const closeBtn = modal.querySelector('[data-modal-close]');
+      closeBtn?.focus();
+    }
+
+    function closeModal(id){
+      const modal = document.getElementById(id);
+      const backdrop = document.querySelector(`[data-modal-backdrop="${id}"]`);
+      if (!modal || !backdrop) return;
+
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      backdrop.classList.add('hidden');
+
+      document.documentElement.style.overflow = '';
+    }
+
+    // Open handlers
+    document.querySelectorAll('[data-modal-open]').forEach(el => {
+      el.addEventListener('click', () => openModal(el.getAttribute('data-modal-open')));
+    });
+
+    // Close handlers (buttons)
+    document.querySelectorAll('[data-modal-close]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('[role="dialog"]');
+        if (modal?.id) closeModal(modal.id);
+      });
+    });
+
+    // Close handlers (backdrops)
+    document.querySelectorAll('[data-modal-backdrop]').forEach(backdrop => {
+      backdrop.addEventListener('click', () => closeModal(backdrop.getAttribute('data-modal-backdrop')));
+    });
+
+    // ESC closes the topmost visible modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const openModals = Array.from(document.querySelectorAll('[role="dialog"]'))
+        .filter(m => !m.classList.contains('hidden'));
+      const last = openModals[openModals.length - 1];
+      if (last?.id) closeModal(last.id);
+    });
+  });
 </script>
+<!-- Modal: Detailní bezpečnostní pravidla -->
+<div class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-[60]" data-modal-backdrop="safetyModal" aria-hidden="true"></div>
+<div id="safetyModal" class="fixed inset-0 hidden z-[70] items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="safetyModalTitle">
+  <div class="relative bg-black/90 border border-white/10 shadow-2xl w-screen h-screen rounded-none md:w-[50vw] md:h-[100vh] md:max-h-screen md:rounded-2xl overflow-hidden">
+    <div class="flex items-start justify-between gap-4 p-4 border-b border-white/10">
+      <div>
+        <div id="safetyModalTitle" class="text-xl md:text-2xl font-extrabold brand-text" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">
+          Detailní bezpečnostní pravidla
+        </div>
+        <div class="text-xs md:text-sm text-neutral-400 mt-1">
+          Přehledně a prakticky: co kontrolujeme, jaké jsou zóny a co je u nás „svaté“.
+        </div>
+      </div>
+      <button type="button" class="inline-flex items-center justify-center w-11 h-11 rounded-xl btn-outline hover:bg-white/5" data-modal-close aria-label="Zavřít">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-4 md:p-5 overflow-y-auto h-[calc(100%-72px)] space-y-4">
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">OCHRANA</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li><strong>Brýle jsou povinné</strong> po celou dobu mimo safe zónu.</li>
+          <li><strong>Ochrana obličeje</strong> je doporučená (zuby a citlivá místa).</li>
+          <li>Rukavice a pevné boty výrazně zvyšují bezpečí i komfort.</li>
+        </ul>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">ZÓNY</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li><strong>Safe zóna</strong> = žádná střelba a bezpečná manipulace.</li>
+          <li>Mimo safe zónu platí pravidla hry a dozor instruktorů.</li>
+        </ul>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">VÝKON & VZDÁLENOSTI</div>
+        <p class="mt-3 text-neutral-300">
+          Hrajeme pouze na akcích s <strong>kontrolovaným a limitovaným výkonem</strong>. Dodržujeme minimální vzdálenosti
+          a přizpůsobujeme režim hry věku a prostředí.
+        </p>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">SIGNÁL „STOP“</div>
+        <p class="mt-3 text-neutral-300">
+          Když kdokoli řekne <strong>„stop“</strong>, hra se okamžitě přeruší. Řešíme situaci, uklidníme, vysvětlíme.
+          Bez debat.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Checklist první návštěvy -->
+<div class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-[60]" data-modal-backdrop="firstVisitModal" aria-hidden="true"></div>
+<div id="firstVisitModal" class="fixed inset-0 hidden z-[70] items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="firstVisitModalTitle">
+  <div class="relative bg-black/90 border border-white/10 shadow-2xl w-screen h-screen rounded-none md:w-[50vw] md:h-[100vh] md:max-h-screen md:rounded-2xl overflow-hidden">
+    <div class="flex items-start justify-between gap-4 p-4 border-b border-white/10">
+      <div>
+        <div id="firstVisitModalTitle" class="text-xl md:text-2xl font-extrabold brand-text" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">
+          Checklist první návštěvy
+        </div>
+        <div class="text-xs md:text-sm text-neutral-400 mt-1">
+          Krátce: co napsat dopředu, co si vzít a co čekat na místě.
+        </div>
+      </div>
+      <button type="button" class="inline-flex items-center justify-center w-11 h-11 rounded-xl btn-outline hover:bg-white/5" data-modal-close aria-label="Zavřít">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-4 md:p-5 overflow-y-auto h-[calc(100%-72px)] space-y-4">
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">PŘED SCHŮZKOU</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li>Napište e-mail / SMS: <strong>věk dítěte</strong> + kontakt na rodiče.</li>
+          <li>Klidně dopište, jestli je dítě začátečník a zda má vlastní brýle.</li>
+        </ul>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">CO SI VZÍT</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li>Odolné oblečení (maskáče nejsou nutné)</li>
+          <li>Pevné boty</li>
+          <li>Voda + malá svačina</li>
+          <li>Brýle / ochrana obličeje (pokud máte – jinak se domluvíme)</li>
+        </ul>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">JAK TO PROBÍHÁ</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li>Seznámení, pravidla, bezpečnost</li>
+          <li>Krátké cvičení a rozdělení týmů</li>
+          <li>Hra (věkově přiměřená) + pauzy</li>
+          <li>Na závěr krátké vyhodnocení (co bylo fajn, co příště)</li>
+        </ul>
+        <p class="mt-3 text-xs text-neutral-400">
+          Rodič může přijít s dítětem a vše si v klidu projít. Kdykoli je možné dát si pauzu v safe zóně.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Přehled nákladů -->
+<div class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-[60]" data-modal-backdrop="costModal" aria-hidden="true"></div>
+<div id="costModal" class="fixed inset-0 hidden z-[70] items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="costModalTitle">
+  <div class="relative bg-black/90 border border-white/10 shadow-2xl w-screen h-screen rounded-none md:w-[50vw] md:h-[100vh] md:max-h-screen md:rounded-2xl overflow-hidden">
+    <div class="flex items-start justify-between gap-4 p-4 border-b border-white/10">
+      <div>
+        <div id="costModalTitle" class="text-xl md:text-2xl font-extrabold brand-text" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">
+          Kolik to stojí – orientačně
+        </div>
+        <div class="text-xs md:text-sm text-neutral-400 mt-1">
+          Největší úspora je nekupovat hned „všechno“. Začněte bezpečností a postupně.
+        </div>
+      </div>
+      <button type="button" class="inline-flex items-center justify-center w-11 h-11 rounded-xl btn-outline hover:bg-white/5" data-modal-close aria-label="Zavřít">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-4 md:p-5 overflow-y-auto h-[calc(100%-72px)] space-y-4">
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">KROUŽEK</div>
+        <p class="mt-3 text-neutral-300">
+          Orientačně počítáme s příspěvkem <strong>3&nbsp;000 Kč za pololetí</strong> (informativně).
+          Přesné podmínky vždy potvrdíme při kontaktu.
+        </p>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">VYBAVENÍ – START</div>
+        <p class="mt-3 text-neutral-300">
+          Na začátek je ideální investovat do <strong>brýlí</strong> a <strong>ochrany obličeje</strong>. Oblečení často stačí běžné, odolné.
+          Další věci se dají doplňovat postupně podle toho, co dítě opravdu využije.
+        </p>
+        <p class="mt-3 text-sm text-neutral-400">
+          Tip: seznam doporučeného vybavení najdeš v okně „Seznam vybavení“ (v FAQ).
+        </p>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">ČEMU SE VYHNOUT</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li>Zbytečné „upgrade“ hned na začátku</li>
+          <li>Záložní zbraň jako první nákup</li>
+          <li>Drahé doplňky bez reálného přínosu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Zásady fair play -->
+<div class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-[60]" data-modal-backdrop="rulesModal" aria-hidden="true"></div>
+<div id="rulesModal" class="fixed inset-0 hidden z-[70] items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="rulesModalTitle">
+  <div class="relative bg-black/90 border border-white/10 shadow-2xl w-screen h-screen rounded-none md:w-[50vw] md:h-[100vh] md:max-h-screen md:rounded-2xl overflow-hidden">
+    <div class="flex items-start justify-between gap-4 p-4 border-b border-white/10">
+      <div>
+        <div id="rulesModalTitle" class="text-xl md:text-2xl font-extrabold brand-text" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">
+          Zásady fair play
+        </div>
+        <div class="text-xs md:text-sm text-neutral-400 mt-1">
+          Jednoduché věci, které dělají hru bezpečnou a férovou.
+        </div>
+      </div>
+      <button type="button" class="inline-flex items-center justify-center w-11 h-11 rounded-xl btn-outline hover:bg-white/5" data-modal-close aria-label="Zavřít">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-4 md:p-5 overflow-y-auto h-[calc(100%-72px)] space-y-4">
+      <div class="card p-4 rounded-2xl">
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Hlášení zásahu</strong> – jsme tu kvůli hře, ne kvůli hádkám.</li>
+          <li><strong>Žádné zbytečné „dobíjení“ zblízka</strong> – respektujeme vzdálenosti a situaci.</li>
+          <li><strong>Žádné urážky</strong> – komunikace slušně, s respektem.</li>
+          <li><strong>Pomoc mladším</strong> – začátečníkům vysvětlíme, nezesměšňujeme.</li>
+          <li><strong>Stop znamená stop</strong> – bezpečnost má absolutní prioritu.</li>
+        </ul>
+      </div>
+      <p class="text-sm text-neutral-400">
+        Když se někdo chová opakovaně proti pravidlům, řešíme to hned. Cílem je bezpečná a férová komunita.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Seznam vybavení (otevře se z FAQ) -->
+<div id="gearModalBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-[60]" data-modal-backdrop="gearModal" aria-hidden="true"></div>
+
+<div id="gearModal"
+     class="fixed inset-0 hidden z-[70] items-center justify-center"
+     role="dialog" aria-modal="true" aria-labelledby="gearModalTitle">
+  <!-- Panel -->
+  <div class="
+      relative bg-black/90 border border-white/10 shadow-2xl
+      w-screen h-screen rounded-none
+      md:w-[50vw] md:h-[100vh] md:max-h-screen md:rounded-2xl
+      overflow-hidden
+    ">
+    <!-- Header -->
+    <div class="flex items-start justify-between gap-4 p-4 border-b border-white/10">
+      <div>
+        <div id="gearModalTitle" class="text-xl md:text-2xl font-extrabold brand-text" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">
+          Seznam vybavení podle nutnosti
+        </div>
+        <div class="text-xs md:text-sm text-neutral-400 mt-1">
+          Bezpečí je základ. Ostatní dokupujte postupně – nenechte se zlákat „machrovinkami“.
+        </div>
+      </div>
+
+      <button type="button" id="gearModalClose" class="inline-flex items-center justify-center w-11 h-11 rounded-xl btn-outline hover:bg-white/5" data-modal-close aria-label="Zavřít">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Content (scroll) -->
+    <div class="p-4 md:p-5 overflow-y-auto h-[calc(100%-72px)]">
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- Povinné -->
+        <div class="card p-4 rounded-2xl">
+          <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">POVINNÉ</div>
+          <h3 class="text-xl mt-2" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">Bezpečnost</h3>
+          <ul class="mt-3 space-y-2 text-neutral-300">
+            <li><strong>Ochranné brýle</strong> (kvalitní, s dobrou ochranou)</li>
+            <li><strong>Ochrana obličeje</strong> (maska / mesh / kryt zubů dle dohody a typu akce)</li>
+          </ul>
+          <p class="mt-3 text-xs text-neutral-400">
+            Bez brýlí se nehraje. U obličeje jde hlavně o zuby a citlivá místa – zásah může bolet.
+          </p>
+        </div>
+
+        <!-- Doporučené -->
+        <div class="card p-4 rounded-2xl">
+          <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">DOPORUČENÉ</div>
+          <h3 class="text-xl mt-2" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">Komfort & ochrana</h3>
+          <ul class="mt-3 space-y-2 text-neutral-300">
+            <li><strong>Pevné boty</strong> (ideálně s oporou kotníku)</li>
+            <li><strong>Helma / čepice</strong> (ochrana hlavy + pohodlí)</li>
+            <li><strong>Rukavice</strong> (prsty jsou citlivé na zásah)</li>
+          </ul>
+          <p class="mt-3 text-xs text-neutral-400">
+            Boty jsou často důležitější než „lepší zbraň“ – v terénu rozhoduje stabilita a bezpečný pohyb.
+          </p>
+        </div>
+
+        <!-- Oblečení -->
+        <div class="card p-4 rounded-2xl">
+          <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">POSTUPNĚ</div>
+          <h3 class="text-xl mt-2" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">Oblečení</h3>
+          <ul class="mt-3 space-y-2 text-neutral-300">
+            <li><strong>Maskáče / odolné oblečení</strong> (klidně i starší)</li>
+            <li><strong>Termoprádlo na zimu</strong> (vrstvení je základ)</li>
+            <li><strong>Kolenní chrániče</strong> (pokud se často klečí)</li>
+          </ul>
+          <p class="mt-3 text-xs text-neutral-400">
+            Na první návštěvu stačí to, co už máte doma – hlavně ať je to pohodlné a odolné.
+          </p>
+        </div>
+
+        <!-- Nosný systém -->
+        <div class="card p-4 rounded-2xl">
+          <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">AŽ KDYŽ DÁVÁ SMYSL</div>
+          <h3 class="text-xl mt-2" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">Nosný systém</h3>
+          <ul class="mt-3 space-y-2 text-neutral-300">
+            <li><strong>Opasek / sumky</strong> (základní přenášení věcí)</li>
+            <li><strong>Lehká vesta / chest rig</strong> (až když dítě ví, že ho to baví)</li>
+            <li><strong>Hydrovak / láhev</strong> (pitný režim je důležitý)</li>
+          </ul>
+          <p class="mt-3 text-xs text-neutral-400">
+            Nejdřív zjistit, co dítě skutečně používá – potom teprve řešit „výstroj“.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4 card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">ČASTÉ VYHOZENÉ PENÍZE U ZAČÁTEČNÍKŮ</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li><strong>Záložní zbraň</strong> – většinou zbytečná „machrovinka“ na začátek</li>
+          <li><strong>Noční vidění</strong> – drahé a pro začátečníky obvykle bez reálného přínosu</li>
+          <li><strong>Příliš „taktických“ doplňků</strong> – nejdřív zkušenost, až pak vylepšení</li>
+        </ul>
+        <p class="mt-3 text-xs text-neutral-400">
+          Doporučení: Nejprve investujte do bezpečnosti a pohodlí. Výkon, doplňky a „upgrade“ řešte až ve chvíli, kdy víte, co vám skutečně vyhovuje.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
