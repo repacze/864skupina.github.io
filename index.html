@@ -59,26 +59,48 @@
     html.js:not(.nav-ready) #desktopNav,
     html.js:not(.nav-ready) #menuBtn{visibility:hidden}
 
-    /* Poloprůhledné logo na pozadí (watermark) */
-    body{position:relative}
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background-image:url('logo.png');
-      background-repeat:no-repeat;
-      background-position:center;
-      background-size:min(520px, 70vw);
-      opacity:0.06;
-      filter:saturate(.9) contrast(1.05);
-      transform:rotate(-12deg);
-      pointer-events:none;
-      z-index:0;
+
+/* Watermark uprostřed stránky (1×) */
+#wmFixed{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: min(72vw, 760px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: .12; /* průhlednost je „ideální“ dle zadání */
+  filter: grayscale(.85) saturate(.8) contrast(1.05);
+}
+#wmFixed img{
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 1;
+}
+main{position:relative; z-index: 1;}
+
+
+    /* --- Watermark visibility overrides (jen pro sekce O nás / FAQ / První návštěva) --- */
+    /* Tyto sekce byly plně neprůhledné, takže watermark pod nimi neprosvítal. */
+    #onas, #faq, #prvni{
+      background-color: rgba(23,23,23,.78) !important;
     }
-    body > *{position:relative; z-index:1;}
+    /* A aby byl watermark vidět i přes karty v těchto sekcích, uděláme je lehce průhledné. */
+    #onas .card, #faq .card, #prvni .card{
+      background: rgba(11,11,11,.78) !important;
+      backdrop-filter: blur(2px);
+    }
+
 </style>
 </head>
 <body>
+
+
+  <!-- Středové watermark logo (drží se uprostřed při scrollu) -->
+  <div id="wmFixed" aria-hidden="true">
+    <img src="logo.png" alt="" />
+  </div>
 
 <header class="fixed top-0 inset-x-0 bg-black/80 backdrop-blur border-b topline z-50">
   <div id="headerInner" class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
@@ -173,7 +195,6 @@
 </div>
 
 <main class="pt-24">
-
 <section class="hero py-20 md:py-24 px-4">
   <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
     <div>
@@ -205,6 +226,13 @@
       <div class="flex items-center justify-between gap-4">
         <h2 class="text-4xl brand-text">Rychlé info</h2>
         <img src="logo.png" alt="" class="w-14 h-14 rounded-full object-contain bg-black/30 ring-1 ring-white/10" />
+      </div>
+
+      <!-- Fotka týmu (ztmavená a sjednocená s designem) -->
+      <div class="mt-5 relative rounded-2xl overflow-hidden border" style="border-color: rgba(255,255,255,.10);">
+        <img src="2_dark.jpg" alt="Tým 864. skupiny Praha"
+             class="w-full h-[210px] object-cover grayscale brightness-50 contrast-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"></div>
       </div>
 
       <ul class="mt-5 space-y-2 text-neutral-300">
@@ -291,6 +319,12 @@
           Jsme parta nadšenců, která se airsoftu věnuje už řadu let. Chceme předávat mladší generaci
           zkušenosti, nadšení a hlavně správné a bezpečné návyky.
         </p>
+
+        <!-- Fotka: vlož do stejné složky jako index.html, např. onas_1.jpg -->
+        <div class="mt-6 rounded-2xl overflow-hidden border" style="border-color: rgba(255,255,255,.10);">
+          <img src="onas_1.jpg" alt="Tým 864. skupiny Praha"
+               class="w-full h-[260px] object-cover grayscale contrast-110 brightness-95" />
+        </div>
       </div>
 
       <div class="card p-6 rounded-2xl">
@@ -299,6 +333,12 @@
           Učíme bezpečné zacházení s airsoftovými zbraněmi, pohyb v terénu, základní taktiku
           a týmovou spolupráci. Důraz klademe na fair play a respekt.
         </p>
+
+        <!-- Fotka: vlož do stejné složky jako index.html, např. onas_2.jpg -->
+        <div class="mt-6 rounded-2xl overflow-hidden border" style="border-color: rgba(255,255,255,.10);">
+          <img src="onas_2.jpg" alt="Aktivity kroužku v terénu"
+               class="w-full h-[260px] object-cover grayscale contrast-110 brightness-95" />
+        </div>
       </div>
     </div>
   </div>
@@ -397,33 +437,6 @@
         <p class="mt-3 text-neutral-300">
           Program vždy přizpůsobujeme aktuálním podmínkám. Pokud není vhodné počasí pro venkovní aktivity,
           věnujeme se bezpečnostním pravidlům, taktice nebo týmovým cvičením.
-        </p>
-      </div>
-
-      <!-- DALŠÍ PRAKTICKÉ DOTAZY -->
-      <div class="card p-6 rounded-2xl">
-        <h3 class="text-2xl text-neutral-100">Kam jezdíme hrát?</h3>
-        <p class="mt-3 text-neutral-300">
-          Hrajeme na různých hřištích v <strong>Praze</strong> a <strong>na západ od Prahy</strong> – typicky v okolí
-          <strong>Kladna</strong>, <strong>Slaného</strong> a <strong>Berouna</strong>. Konkrétní místo vždy upřesníme předem
-          podle typu akce a možností skupiny.
-        </p>
-      </div>
-
-      <div class="card p-6 rounded-2xl">
-        <h3 class="text-2xl text-neutral-100">S kým se střetáváme nejčastěji?</h3>
-        <p class="mt-3 text-neutral-300">
-          Často spolupracujeme a potkáváme se se spřáteleným týmem <strong>SALTY INVADERS</strong>.
-          Odkaz na jejich Facebook najdeš zde:
-          <a class="underline hover:text-white" href="https://www.facebook.com/groups/airsoftkladnoslany.cz/" target="_blank" rel="noopener">Airsoft Kladno–Slaný / Salty Invaders</a>.
-        </p>
-      </div>
-
-      <div class="card p-6 rounded-2xl md:col-span-2">
-        <h3 class="text-2xl text-neutral-100">Jak jezdit na víkendové akce?</h3>
-        <p class="mt-3 text-neutral-300">
-          Nemusíš dítě vozit pokaždé sám. Většinou se dá domluvit <strong>spolujízda</strong> s ostatními rodiči nebo
-          členy skupiny, kteří jedou stejným směrem. Domluvu řešíme průběžně na tréninku nebo přes naše komunikační kanály.
         </p>
       </div>
     </div>
