@@ -92,6 +92,12 @@ main{position:relative; z-index: 1;}
       backdrop-filter: blur(2px);
     }
 
+
+    /* Plynulé posouvání na kotvy (menu) */
+    html{ scroll-behavior: smooth; }
+
+    /* Rezerva kvůli fixnímu headeru – aby sekce nebyla schovaná pod ním */
+    section[id]{ scroll-margin-top: 96px; }
 </style>
 </head>
 <body>
