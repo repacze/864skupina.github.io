@@ -228,6 +228,12 @@ main{position:relative; z-index: 1;}
       <p class="mt-6 text-sm text-neutral-400">
         První návštěva je zdarma. Rodič může přijít s dítětem a vše si v klidu projít.
       </p>
+
+      <div class="mt-4">
+        <button type="button" class="text-sm text-neutral-300 underline hover:text-white font-semibold" data-modal-open="parentsModal">
+          Pro rodiče: rychlé info (organizace, soukromí, zdravotní věci)
+        </button>
+      </div>
     </div>
 
     <div class="card p-7 rounded-2xl">
@@ -1044,6 +1050,77 @@ main{position:relative; z-index: 1;}
   </div>
 </div>
 
+<!-- Modal: Pro rodiče -->
+<div class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-[60]" data-modal-backdrop="parentsModal" aria-hidden="true"></div>
+<div id="parentsModal" class="fixed inset-0 hidden z-[70] items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="parentsModalTitle">
+  <div class="relative bg-black/90 border border-white/10 shadow-2xl w-screen h-screen rounded-none md:w-[50vw] md:h-[100vh] md:max-h-screen md:rounded-2xl overflow-hidden">
+    <div class="flex items-start justify-between gap-4 p-4 border-b border-white/10">
+      <div>
+        <div id="parentsModalTitle" class="text-xl md:text-2xl font-extrabold brand-text" style="font-family:'Bebas Neue',cursive;letter-spacing:2px">
+          Pro rodiče – rychlé info
+        </div>
+        <div class="text-xs md:text-sm text-neutral-400 mt-1">
+          Praktické věci, které se hodí vědět před první návštěvou i při pravidelných schůzkách.
+        </div>
+      </div>
+      <button type="button" class="inline-flex items-center justify-center w-11 h-11 rounded-xl btn-outline hover:bg-white/5" data-modal-close aria-label="Zavřít">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-4 md:p-5 overflow-y-auto h-[calc(100%-72px)] space-y-4">
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">ORGANIZACE</div>
+        <ul class="mt-3 space-y-2 text-neutral-300">
+          <li>Doporučujeme dorazit <strong>10–15 minut před začátkem</strong> (v klidu vše připravíme a vysvětlíme).</li>
+          <li>Změny termínů nebo důležité info posíláme <strong>e‑mailem / SMS</strong> (dle domluvy).</li>
+          <li>Dítě má během programu <strong>pauzy</strong> a hlídáme <strong>pitný režim</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">ZDRAVÍ</div>
+        <p class="mt-3 text-neutral-300">
+          Pokud má dítě zdravotní omezení (např. astma, alergie) nebo nosí léky, dejte nám prosím vědět dopředu.
+          Program přizpůsobíme tak, aby to bylo v pohodě a bezpečné.
+        </p>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">SOUKROMÍ & FOTKY</div>
+        <p class="mt-3 text-neutral-300">
+          Fotky zveřejňujeme jen se souhlasem rodičů. Pokud si nepřejete, aby bylo dítě na fotkách, respektujeme to – stačí říct.
+        </p>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">VYBAVENÍ & PENÍZE</div>
+        <p class="mt-3 text-neutral-300">
+          Na první návštěvu není potřeba kupovat nic drahého – často stačí pevné boty a odolné oblečení.
+          Důležité jsou bezpečnostní prvky (brýle / ochrana obličeje). Ostatní výbavu je nejlepší dokupovat postupně.
+        </p>
+        <p class="mt-3 text-sm text-neutral-400">
+          Tip: v FAQ je „Seznam vybavení“ rozdělený podle toho, co je povinné a co je zbytečný luxus.
+        </p>
+      </div>
+
+      <div class="card p-4 rounded-2xl">
+        <div class="text-xs tracking-[.22em] text-neutral-400 font-bold">ZTRÁTY / POŠKOZENÍ</div>
+        <p class="mt-3 text-neutral-300">
+          U vypůjčených věcí počítáme s běžným opotřebením. Pokud by se něco poškodilo hrubým zacházením nebo se ztratilo,
+          řešíme to vždy <strong>v klidu a individuálně</strong> s rodičem – cílem není „trestat“, ale mít jasná pravidla.
+        </p>
+      </div>
+
+      <div class="text-sm text-neutral-400">
+        Když budete chtít cokoliv probrat předem, napište nebo zavolejte – raději vysvětlíme dopředu, než aby měl někdo stres.
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal: Seznam vybavení (otevře se z FAQ) -->
 <div id="gearModalBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-[60]" data-modal-backdrop="gearModal" aria-hidden="true"></div>
 
@@ -1064,7 +1141,7 @@ main{position:relative; z-index: 1;}
           Seznam vybavení podle nutnosti
         </div>
         <div class="text-xs md:text-sm text-neutral-400 mt-1">
-          Bezpečí je základ. Ostatní dokupujte postupně – nenechte se zlákat „machrovinkami“.
+          Bezpečí je základ. Na první návštěvu nemusíte kupovat nic drahého – ostatní dokupujte postupně a nenechte se zlákat „machrovinkami“.
         </div>
       </div>
 
