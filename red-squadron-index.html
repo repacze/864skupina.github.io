@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <title>Red Squadron</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --red: #b30000;
+      --red-bright: #ff1a1a;
+      --text: #f2f2f2;
+      --muted: #8b8b8b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(179,0,0,.12), transparent 45%),
+        linear-gradient(180deg, rgba(255,0,0,.025), transparent 40%, rgba(255,0,0,.02));
+      z-index: -4;
+    }
+
+    .grain,
+    .scanlines {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+    }
+
+    .grain {
+      opacity: .18;
+      z-index: 5;
+      background-image:
+        repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,.045) 1px, transparent 2px);
+      background-size: 4px 4px;
+      animation: grainMove .16s steps(2) infinite;
+      mix-blend-mode: screen;
+    }
+
+    .scanlines {
+      z-index: 4;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.015) 0,
+        rgba(255,255,255,.015) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+      animation: scan 9s linear infinite;
+    }
+
+    .frame {
+      position: fixed;
+      inset: 18px;
+      border: 1px solid rgba(255, 26, 26, .25);
+      z-index: -1;
+    }
+
+    .corner {
+      position: fixed;
+      width: 70px;
+      height: 70px;
+      border-color: var(--red);
+      opacity: .5;
+      z-index: -1;
+    }
+
+    .corner.tl { top: 18px; left: 18px; border-top: 3px solid; border-left: 3px solid; }
+    .corner.tr { top: 18px; right: 18px; border-top: 3px solid; border-right: 3px solid; }
+    .corner.bl { bottom: 18px; left: 18px; border-bottom: 3px solid; border-left: 3px solid; }
+    .corner.br { bottom: 18px; right: 18px; border-bottom: 3px solid; border-right: 3px solid; }
+
+    main {
+      width: min(92vw, 1100px);
+      text-align: center;
+      padding: 48px 18px;
+      position: relative;
+    }
+
+    .emblem {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 24px;
+      position: relative;
+      transform: rotate(45deg);
+      border: 2px solid var(--red);
+      box-shadow: 0 0 30px rgba(179,0,0,.35);
+    }
+
+    .emblem::before,
+    .emblem::after {
+      content: "";
+      position: absolute;
+      background: var(--red);
+    }
+
+    .emblem::before {
+      width: 2px;
+      height: 120%;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .emblem::after {
+      width: 120%;
+      height: 2px;
+      left: -10%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .label {
+      color: var(--red-bright);
+      font-family: "Courier New", monospace;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      font-size: clamp(.65rem, 1vw, .85rem);
+      margin-bottom: 12px;
+      opacity: .8;
+    }
+
+    h1 {
+      position: relative;
+      margin: 0;
+      font-size: clamp(5rem, 20vw, 15rem);
+      line-height: .8;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      text-shadow:
+        4px 0 0 rgba(179,0,0,.9),
+        -3px 0 0 rgba(255,255,255,.08),
+        0 0 35px rgba(179,0,0,.25);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    h1::before,
+    h1::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    h1::before {
+      color: rgba(255,0,0,.55);
+      transform: translate(2px, 0);
+      clip-path: inset(12% 0 63% 0);
+      animation: glitchA 2.4s infinite steps(2);
+    }
+
+    h1::after {
+      color: rgba(255,255,255,.18);
+      transform: translate(-2px, 0);
+      clip-path: inset(68% 0 12% 0);
+      animation: glitchB 2s infinite steps(2);
+    }
+
+    .button-wrap {
+      margin-top: 42px;
+    }
+
+    .kitlist {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: min(92vw, 370px);
+      padding: 18px 28px;
+      border: 2px solid var(--red);
+      color: var(--text);
+      background: rgba(179,0,0,.08);
+      text-decoration: none;
+      font-family: "Courier New", monospace;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s ease, color .2s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 0 0 rgba(179,0,0,0);
+    }
+
+    .kitlist::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--red);
+      transform: translateX(-102%);
+      transition: transform .22s ease;
+      z-index: -1;
+    }
+
+    .kitlist:hover::before,
+    .kitlist:focus-visible::before {
+      transform: translateX(0);
+    }
+
+    .kitlist:hover,
+    .kitlist:focus-visible {
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(179,0,0,.45);
+      outline: none;
+    }
+
+    .subtext {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-family: "Courier New", monospace;
+      font-size: .78rem;
+      letter-spacing: .08em;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      text-align: center;
+      color: #5c5c5c;
+      font-family: "Courier New", monospace;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      color: var(--red-bright);
+      font-family: "Courier New", monospace;
+      font-size: .68rem;
+      letter-spacing: .1em;
+      opacity: .65;
+    }
+
+    .status::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 8px;
+      background: var(--red-bright);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--red-bright);
+      animation: blink 1.25s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.008); }
+    }
+
+    @keyframes glitchA {
+      0%, 92%, 100% { transform: translate(2px,0); }
+      93% { transform: translate(9px,-2px); }
+      95% { transform: translate(-6px,2px); }
+      97% { transform: translate(4px,0); }
+    }
+
+    @keyframes glitchB {
+      0%, 88%, 100% { transform: translate(-2px,0); }
+      89% { transform: translate(-8px,2px); }
+      92% { transform: translate(7px,-1px); }
+      95% { transform: translate(-3px,0); }
+    }
+
+    @keyframes blink {
+      0%, 45% { opacity: 1; }
+      46%, 100% { opacity: .25; }
+    }
+
+    @keyframes grainMove {
+      from { transform: translate(0,0); }
+      to { transform: translate(2px,-2px); }
+    }
+
+    @keyframes scan {
+      from { transform: translateY(-10px); }
+      to { transform: translateY(10px); }
+    }
+
+    @media (max-width: 640px) {
+      .status {
+        top: 24px;
+        left: 24px;
+      }
+
+      .emblem {
+        width: 58px;
+        height: 58px;
+        margin-bottom: 18px;
+      }
+
+      .button-wrap {
+        margin-top: 30px;
+      }
+
+      footer {
+        bottom: 24px;
+        padding: 0 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="scanlines"></div>
+  <div class="frame"></div>
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="status">RED SQUADRON // ACCESS DENIED</div>
+
+  <main>
+    <div class="emblem" aria-hidden="true"></div>
+    <div class="label">Restricted area</div>
+
+    <h1 data-text="FUCK OFF">FUCK OFF</h1>
+
+    <div class="button-wrap">
+      <!-- NAHRAĎ ODKAZ NÍŽE ZA SKUTEČNÝ ODKAZ NA KITLIST -->
+      <a
+        class="kitlist"
+        href="https://example.com/kitlist"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-default="OKAY, SHOW ME THE KITLIST"
+        data-hover="YOU SURE?"
+      >OKAY, SHOW ME THE KITLIST</a>
+    </div>
+
+    <p class="subtext">Unauthorized personnel will be mocked.</p>
+  </main>
+
+  <footer>Definitely not an official website.</footer>
+
+  <script>
+    const button = document.querySelector(".kitlist");
+
+    button.addEventListener("mouseenter", () => {
+      button.textContent = button.dataset.hover;
+    });
+
+    button.addEventListener("mouseleave", () => {
+      button.textContent = button.dataset.default;
+    });
+
+    button.addEventListener("focus", () => {
+      button.textContent = button.dataset.hover;
+    });
+
+    button.addEventListener("blur", () => {
+      button.textContent = button.dataset.default;
+    });
+  </script>
+</body>
+</html>
